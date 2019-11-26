@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>JS Code Quiz</title>
+</head>
+
+<!-- **************************************** -->
+<!-- **************************************** -->
+<body>
+
+    <div id="container">
+
+        <header>
+            <h1>
+                Javascript Quiz
+            </h1>
+            <h3>
+                Test Your Knowledge!!
+            </h3>
+        </header>
+        <br>
+        <div id=quiz>
+
+            <button class="navBtn" id="view">View High Scores</button>
+            <button class="navBtn" id="start">Start Quiz</button>
+
+            <div id="questions">
+
+                <h4 id="currQuestion">
+                    placeholder Text
+                </h4>
+                <ul id="answerList">
+
+                </ul>
+
+            </div> <!--questions-->
+
+
+            <div id="timeStr">
+                Time Allowed: :60s Time Remaining: <span id="timeRem">:60s</span>
+            </div> <!--timeStr-->
+
+        </div> <!--quiz-->
+    </div> <!--container-->
+
+
+<!-- **************************************** -->
+<!-- **************************************** -->
+    <script src="assets/script/questions.js"></script>
+    <script src="assets/script/code-quiz.js"></script>
+</body>
+</html>
+
