@@ -2,23 +2,46 @@
 // globals
 // **********************************************
 
-var viewBtn = $("#view"); 
-var startBtn = $("#start"); 
-var currQ = $("#currQuestion"); 
-var answerUL = $("#answerList"); 
-var timeRem = $("#timeRem"); 
+var viewBtnElem = $("#view"); 
+var startBtnElem = $("#start"); 
+var stopBtnElem = $("#stop"); 
+var currQElem = $("#currQuestion"); 
+var answerULElem = $("#answerList"); 
+var timeRemElem = $("#timeRem"); 
+
+var interval;  
+var timeRem = 5; 
 
 // **********************************************
 // functions
 // **********************************************
 
+function decrementTimer () {
+
+    console.log (timeRemElem); 
+    timeRem--;
+    timeRemElem.html(timeRem); 
+
+    if (timeRem == 0) {
+        clearInterval(interval); 
+    }
+} 
+
+
+function startTimer () {
+
+    clearInterval(interval); 
+    interval = setInterval(function() {
+        decrementTimer();
+    }, 1000);
+}
 
 function init () {
 
     //console.log (currQuestion);
 
     // load up the first question. This will all eventually move elsewhere, just want to see one
-    currQ.html(questions[0].title); 
+    currQElem.html(questions[0].title); 
 
     var li; 
     var liBtn; 
@@ -34,13 +57,25 @@ function init () {
         console.log (liBtn); 
 
         li.append (liBtn); 
-        answerUL.append (li);  
+        answerULElem.append (li);  
     }
 
 };
 // **********************************************
 // listeners
 // **********************************************
+
+startBtnElem.on("click", function (){
+
+    startTimer (); 
+
+}); 
+
+stopBtnElem.on("click", function (){
+
+    clearInterval(interval); 
+
+}); 
 
 // **********************************************
 // main
