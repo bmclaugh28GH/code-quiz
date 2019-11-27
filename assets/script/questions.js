@@ -10,21 +10,21 @@ var questions = [
     }, 
     {
     title: "Inside which HTML element do we put the JavaScript?",
-    choices: ["<scripting>", "<script>", "<javascript>", "<js>"],
+    choices: ["&lt;scripting&gt;", "&lt;script&gt;", "&lt;javascript&gt;", "&lt;js&gt;"],
     answer: 1
     }, 
     {
     title: "Where is the correct place to insert a JavaScript?",
-    choices: ["<head>", "<body>, at the top", "<body>, at the end", "<head> or <body>"],
+    choices: ["&lt;head&gt;", "&lt;body&gt;, at the top", "&lt;body&gt;, at the end", "&lt;head&gt; or &lt;body&gt;"],
     answer: 2
     }, 
     {
     title:"What is the correct syntax for referring to an external script called 'xxx.js'?",
-    choices: ["<script src='xxx.js'>", "<script name='xxx.js'>", "<script href='xxx.js'>"],
+    choices: ["&lt;script src='xxx.js'&gt;", "&lt;script name='xxx.js'&gt;", "&lt;script href='xxx.js'&gt;"],
     answer: 0
     }, 
     {
-    title: "The external JavaScript file must contain the <script> tag.",
+    title: "The external JavaScript file must contain the &lt;script&gt; tag.",
     choices: ["true","false"],
     answer: 1
     }, 

@@ -28,9 +28,12 @@ body {
     color:#fff5e6; 
     background-color:#4d2e00;
 }
-
+#stop{
+    display:none;
+}
 #questions{
-    background-color:yellow;
+    background-color:#ffebcd; 
+    /*background-color:yellow;*/
     height:60%; 
     width:80%; 
     margin-left:10%; 
