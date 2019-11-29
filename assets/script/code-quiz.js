@@ -31,6 +31,7 @@ function endQuiz(){
     }
     quizInProg = false; 
     timeRemElem.html(0); 
+    answerULElem.empty(); 
 
     var highScore = localStorage.getItem(initialsIP); 
     console.log ("right " + rightCt + " wrong " + wrongCt + " high score " + highScore + " " + initialsIP); 
@@ -49,6 +50,7 @@ function endQuiz(){
 
 // **********************************************
 // **********************************************
+
 function loadNextQuestion (){
 
     currQ++; 
@@ -115,6 +117,9 @@ function init () {
 // listeners
 // **********************************************
 
+// **********************************************
+// start quiz 
+// **********************************************
 startBtnElem.on("click", function (){
 
     // re-initialize everything here in case we run the quiz > once 
@@ -126,29 +131,52 @@ startBtnElem.on("click", function (){
 
     initialsIP = prompt ("Quiz starting!  Please enter your initials"); 
     startTimer (); 
-}); 
+}); //startBtnElem.on("click"
 
+// **********************************************
+// stop the timer (this was for debugging)
+// **********************************************
 stopBtnElem.on("click", function (){
     clearInterval(interval); 
-}); 
+}); //stopBtnElem.on("click"
 
+// **********************************************
+// answer buttons 
+// **********************************************
 answerULElem.on("click", function (){
+
     answerBtn = event.target; 
     if (answerBtn.matches("button")) {
-        //console.log (answerBtn);  
-        //alert ("answer chosen " + answerBtn.getAttribute("value"));
 
         if (answerBtn.getAttribute("value") == questions[currQ].answer) {
-            rightCt++; 
+            rightCt++;
+            document.getElementById("right").play();   
+
         }
         else {
             wrongCt++; 
             timeRem-=5; 
             timeRemElem.html(timeRem); 
+            document.getElementById("wrong").play();   
         }
         loadNextQuestion(); 
     }
-}); 
+}); //answerULElem.on("click"
+
+// **********************************************
+// view high scores button 
+// **********************************************
+viewBtnElem.on("click", function () {
+
+    initialsIP = prompt ("Please enter your initials"); 
+    var userHighScore = localStorage.getItem(initialsIP); 
+    if (userHighScore == null || userHighScore == '') {
+        alert ("There is not yet a recorded high score for you");
+        return; 
+    }
+    alert ("Your high score is " + userHighScore); 
+
+}); //viewBtnElem.on("click"
 
 // **********************************************
 // main
