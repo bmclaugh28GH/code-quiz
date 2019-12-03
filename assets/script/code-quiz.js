@@ -10,7 +10,7 @@ var answerULElem = $("#answerList");
 var timeRemElem = $("#timeRem"); 
 
 var interval;  
-var timeRem = 65; 
+var timeRem = 60; 
 
 var questionCt = 0; 
 var wrongCt = 0; 
@@ -30,8 +30,10 @@ function endQuiz(){
         return; 
     }
     quizInProg = false; 
+    clearInterval(interval); 
     timeRemElem.html(0); 
     answerULElem.empty(); 
+    currQElem.html(""); 
 
     var highScore = localStorage.getItem(initialsIP); 
     console.log ("right " + rightCt + " wrong " + wrongCt + " high score " + highScore + " " + initialsIP); 
@@ -123,7 +125,7 @@ function init () {
 startBtnElem.on("click", function (){
 
     // re-initialize everything here in case we run the quiz > once 
-    timeRem = 65; 
+    timeRem = 60; 
     wrongCt = 0; 
     rightCt = 0; 
     currQ = -1; 
